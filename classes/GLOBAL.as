@@ -749,6 +749,23 @@
 			NIPPLE_TYPE_INVERTED,
 			NIPPLE_TYPE_TENTACLED,
 		];
+		
+		//NIPPLE FLAGS
+		public static const NIPPLE_FLAG_PUFFY:int = 1;
+		public static const NIPPLE_FLAG_HEART_AREOLA:int = 3;
+		public static const NIPPLE_FLAG_STAR_AREOLA:int = 4;
+		
+		public static const NIPPLE_FLAG_NAMES:Array = [
+			"Puffy",
+			"Heart-Shaped Areola",
+			"Star-Shaped Areola",
+		];
+		
+		public static const VALID_NIPPLE_FLAGS:Array = [
+			NIPPLE_FLAG_PUFFY,
+			NIPPLE_FLAG_HEART_AREOLA,
+			NIPPLE_FLAG_STAR_AREOLA,
+		];
 				
 		//CUM & MILK TYPES
 		public static const FLUID_TYPE_MILK:int                                 = 0;
