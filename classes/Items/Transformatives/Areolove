@@ -74,16 +74,16 @@ package classes.Items.Transformatives
 				output("The medipen has a number of symbol shaped buttons on it.")
 				
 				//Puffy
-				if (target.breastRows[0].hasFlag(GLOBAL.NIPPLE_FLAG_PUFFY))
+				if (target.breastRows[0].hasFlag(GLOBAL.FLAG_PUMPED))
 				{
 					addDisabledButton(buttons++,"Puffy","Puffy","Your areolae are already puffy.");
 				}
 				else
 				{
-					addButton(buttons++, "Puffy", changeThemBoobHats, [GLOBAL.NIPPLE_FLAG_PUFFY, target], "Puffy", "Makes your areolae puffy.");
+					addButton(buttons++, "Puffy", changeThemBoobHats, [GLOBAL.FLAG_PUMPED, target], "Puffy", "Makes your areolae puffy.");
 				}
 				//Depuff
-				if (!target.breastRows[0].hasFlag(GLOBAL.NIPPLE_FLAG_PUFFY))
+				if (!target.breastRows[0].hasFlag(GLOBAL.FLAG_PUMPED))
 				{
 					addDisabledButton(buttons++,"Flat","Flat","Your areolae are already flat.");
 				}
@@ -93,7 +93,7 @@ package classes.Items.Transformatives
 				}
 				
 				//Circles
-				if (!target.breastRows[0].hasFlag(GLOBAL.NIPPLE_FLAG_HEART_AREOLA) && !target.breastRows[0].hasFlag(GLOBAL.NIPPLE_FLAG_STAR_AREOLA))
+				if (!target.breastRows[0].hasFlag(GLOBAL.FLAG_HEART_SHAPED) && !target.breastRows[0].hasFlag(GLOBAL.FLAG_STAR_SHAPED))
 				{
 					addDisabledButton(buttons++,"Circles","Circles","Your areolae are already shaped like circles.");
 				}
@@ -103,23 +103,23 @@ package classes.Items.Transformatives
 				}
 			
 				//Heart shaped areola
-				if (target.breastRows[0].hasFlag(GLOBAL.NIPPLE_FLAG_HEART_AREOLA)) 
+				if (target.breastRows[0].hasFlag(GLOBAL.FLAG_HEART_SHAPED)) 
 				{
 					addDisabledButton(buttons++,"Hearts","Hearts","Your areolae are already shaped like hearts.");
 				}
 				else
 				{
-					addButton(buttons++, "Hearts", changeThemBoobHats, [GLOBAL.NIPPLE_FLAG_HEART_AREOLA, target], "Hearts", "Changes the shape of your areolae to hearts.");
+					addButton(buttons++, "Hearts", changeThemBoobHats, [GLOBAL.FLAG_HEART_SHAPED, target], "Hearts", "Changes the shape of your areolae to hearts.");
 				}
 			
 				//Star shaped areola
-				if (target.breastRows[0].hasFlag(GLOBAL.NIPPLE_FLAG_STAR_AREOLA))
+				if (target.breastRows[0].hasFlag(GLOBAL.FLAG_STAR_SHAPED))
 				{
 					addDisabledButton(buttons++,"Stars","Stars","Your areolae are already shaped like stars.");
 				}
 				else
 				{
-					addButton(buttons++, "Stars", changeThemBoobHats, [GLOBAL.NIPPLE_FLAG_STAR_AREOLA, target], "Stars", "Changes the shape of your areolae to stars.");
+					addButton(buttons++, "Stars", changeThemBoobHats, [GLOBAL.FLAG_STAR_SHAPED, target], "Stars", "Changes the shape of your areolae to stars.");
 				}
 			
 			return true;
@@ -164,11 +164,11 @@ package classes.Items.Transformatives
 			switch (selection)
 			{
 				//Puff
-				case GLOBAL.NIPPLE_FLAG_PUFFY:
+				case GLOBAL.FLAG_PUMPED:
 					output(" The sensations diffuse evenly throughout your areolae, increasing the amount of tissue to reach your desired shape. <b>Your areolae are now puffy!</b>");
 					for(i = 0; i < target.breastRows.length; i++)
 					{
-						target.breastRows[i].addFlag(GLOBAL.NIPPLE_FLAG_PUFFY); 
+						target.breastRows[i].addFlag(GLOBAL.FLAG_PUMPED); 
 					}
 					break;
 				//Unpuff
@@ -176,7 +176,7 @@ package classes.Items.Transformatives
 					output(" The sensations diffuse evenly throughout your areolae, increasing the amount of tissue to reach your desired shape.<b>Your areolae are no longer puffy.</b>");
 					for(i = 0; i < target.breastRows.length; i++)
 					{
-						target.breastRows[i].delFlag(GLOBAL.NIPPLE_FLAG_PUFFY); 
+						target.breastRows[i].delFlag(GLOBAL.FLAG_PUMPED); 
 					}
 					break;
 				//Circles
@@ -193,7 +193,7 @@ package classes.Items.Transformatives
 					for(i = 0; i < target.breastRows.length; i++)
 					{
 						target.breastRows[i].delAreolaShapeFlags();
-						target.breastRows[i].addFlag(GLOBAL.NIPPLE_FLAG_HEART_AREOLA);
+						target.breastRows[i].addFlag(GLOBAL.FLAG_HEART_SHAPED);
 					}
 					break;
 				//Stars
@@ -202,7 +202,7 @@ package classes.Items.Transformatives
 					for(i = 0; i < target.breastRows.length; i++)
 					{
 						target.breastRows[i].delAreolaShapeFlags();
-						target.breastRows[i].addFlag(GLOBAL.NIPPLE_FLAG_STAR_AREOLA);
+						target.breastRows[i].addFlag(GLOBAL.FLAG_STAR_SHAPED);
 					}
 					break;
 			}
