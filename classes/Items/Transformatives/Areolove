@@ -36,7 +36,7 @@ package classes.Items.Transformatives
 			//Longass shit, not sure what used for yet.
 			this.description = "a medipen loaded with Areolove";
 			//Displayed on tooltips during mouseovers
-			this.tooltip = "A low-grade transformative, Areolove will change the shape of the user's areolae. There's a small disclaimer stating that this product might not work on unusual nipple types.";
+			this.tooltip = "A low-grade transformative, Areolove will change the shape of the user's areolae. Buttons with various shape line up across the length of the medipen, featuring many ways to stylize your nipples. There's a small disclaimer stating that this product might not work on unusual nipple types.";
 			
 			TooltipManager.addTooltip(this.shortName, this.tooltip);
 			
@@ -181,7 +181,7 @@ package classes.Items.Transformatives
 					break;
 				//Circles
 				case 0:
-					output(" The sensations focus themselves around the edges of your areolae, adding and removing tissue to reach your desired shape. <b>Your areolae are now circles!</b>");
+					output(" The sensations focus themselves around the edges of your areolae, reshaping the outline into a much more exciting shape. <b>Your areolae are now circles!</b>");
 					for(i = 0; i < target.breastRows.length; i++)
 					{
 						target.breastRows[i].delAreolaShapeFlags(); 
@@ -189,7 +189,7 @@ package classes.Items.Transformatives
 					break;
 				//Hearts
 				case GLOBAL.NIPPLE_FLAG_HEART_AREOLA:
-					output(" The sensations focus themselves around the edges of your areolae, adding and removing tissue to reach your desired shape.<b>Your areolae are now hearts!</b>");
+					output(" The sensations focus themselves around the edges of your areolae, reshaping the outline into a much more exciting shape. <b>Your areolae are now hearts!</b>");
 					for(i = 0; i < target.breastRows.length; i++)
 					{
 						target.breastRows[i].delAreolaShapeFlags();
@@ -198,7 +198,7 @@ package classes.Items.Transformatives
 					break;
 				//Stars
 				case GLOBAL.NIPPLE_FLAG_STAR_AREOLA:
-					output(" The sensations focus themselves around the edges of your areolae, adding and removing tissue to reach your desired shape.<b>Your areolae are now stars!</b>");
+					output(" The sensations focus themselves around the edges of your areolae, reshaping the outline into a much more exciting shape. <b>Your areolae are now stars!</b>");
 					for(i = 0; i < target.breastRows.length; i++)
 					{
 						target.breastRows[i].delAreolaShapeFlags();
