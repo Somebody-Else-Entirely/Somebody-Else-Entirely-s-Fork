@@ -708,7 +708,7 @@ public function ulaPussyFuck():void
 	if(!pc.isCrotchExposed()) output("Fluffy hands help you out of your [pc.crotchCovers]. <i>“Or this.”</i> ");
 	if(flags["MET_ULA"] == undefined) output("The korgonne");
 	else output("Ula");
-	output(" pulls you toward the bed, and you let yourself be lead. Silky fur slides through your fingers as you slide sideways into the warm cushions. They smell like her: a little spicy and a little minty, warm and inviting.");
+	output(" pulls you toward the bed, and you let yourself be led. Silky fur slides through your fingers as you slide sideways into the warm cushions. They smell like her: a little spicy and a little minty, warm and inviting.");
 	output("\n\nYou sink into the cushions. The bejeweled dog-girl rolls onto you, thick thighs");
 	if(pc.hipRating() >= 14) output(" straining to stretch over your expansive hips");
 	else output(" wrapping around your hips");
