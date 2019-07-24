@@ -950,7 +950,7 @@ public function vaginalFap():void {
 	else output("soaking-wet, crotch-drenching entrance that would be oh so easy to enter");
 	output(" quivers deliciously at your touch, the folds engorging as they fill with unspent desire, their flesh sensitive and achy.");
 	if(pc.totalClits() > 0) {
-		output(" You slide your palm across the slowly-stiffening surface of your clitroral hood");
+		output(" You slide your palm across the slowly-stiffening surface of your clitoral hood");
 		if(pc.totalClits() > 1) output("s before they swell");
 		else output(" before it swells");
 		output(" enough to become exposed.");
