@@ -376,7 +376,7 @@ public function celiseSucksYouDry():void {
 	output("\n\nCelise smiles and reduces the suction, cutting off the stream of [pc.cum] a moment before the cylindrical cock-traps start to lurch up and down, back and forth, jacking you off with hot, liquid weight. Your pumped-up, over-sized cock");
 	if(pc.cockTotal() > 1) output("s engorge");
 	else output(" engorges");
-	output(" further, finally getting stroking you craved. You cry out, your muscles clench, and at long last, you cum. Your whole body trembles and shakes with the force of it, ");
+	output(" further, finally getting the stroking you craved. You cry out, your muscles clench, and at long last, you cum. Your whole body trembles and shakes with the force of it, ");
 	if(pc.cumQ() < 5000) output("even though barely a few drops escape your spasming [pc.cocks]");
 	else output("launching huge blasts of previously reserved [pc.cumNoun] into the woman. Her tits, hips, and ass all expand under the deluge, filling until each new rope forces Celise to leak a river of [pc.cumColor]");
 	output(".");
