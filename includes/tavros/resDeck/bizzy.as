@@ -1449,7 +1449,7 @@ public function bizzyStage3GiveItemNext():void
 	else output(" have your hand rammed into your [pc.vagina], flicking yourself furiously");
 	output(" as you watch, barely even aware of what you’re doing. You almost forget about the other camera angles, and it’s by clicking on the one to the side of Bizzy that you see that the gene-mod is doing more than growing her boobs. The pale swell of her ass is growing out too, taking on a rounder, more noticeable shape, her hips widening as well, womanly curvature. Maybe just as well, given the extra weight they will now be bearing everywhere.");
 	
-	output("\n\n<i>“Oh my tails,”</i> moans Bizzy, hands full of the rich, soft flesh that now hangs off of her chest. She spattered with sticky purple, as if a bunch of juice boxes just bukkake’d her. She’s managed to smear about as much Tittyblossom over her as she actually embibed, but that’s ok - she took more than enough. Her tits are considerably bigger than her head now, massive, blimp-like things that you’d hazard as being J cups.");
+	output("\n\n<i>“Oh my tails,”</i> moans Bizzy, hands full of the rich, soft flesh that now hangs off of her chest. She spattered with sticky purple, as if a bunch of juice boxes just bukkake’d her. She’s managed to smear about as much Tittyblossom over her as she actually imbibed, but that’s ok - she took more than enough. Her tits are considerably bigger than her head now, massive, blimp-like things that you’d hazard as being J cups.");
 	
 	output("\n\nWhen she finally stands she does so with a grunt, heaving those babies into the air a genuine effort. Mmm - they’ve retained a certain pertness, her engorged nipples poking into the middle distance. Bizzy swings them about, takes big handfuls and squeezes them, brushes her hands over the nips way out in front of her, shock turning into awe, seeming to forget all about the audience staring at her. You have, too. You gaze down at the livestream viewer count, and do a double take. It crested over 2 million.");
 	
@@ -1969,7 +1969,7 @@ public function bizzyBreastsGiveItemStage1Next():void
 	else output(" fingering your [pc.vagina");
 	output(" almost reactively to what you’re watching.");
 
-	output("\n\nBy the time Bizzy has finished slurping down the popsicle, she has a lovely, perky set of breasts, maybe C cups, perfect for her frame. Her enthusiasm for them is genuine and affecting: She plays with them, bounces them up and down, cheering with delight, never seeming to tire of feeling their soft weight in her hands.");
+	output("\n\nBy the time Bizzy has finished slurping down the popsicle, she has a lovely, perky set of breasts, maybe C cups, perfect for her frame. Her enthusiasm for them is genuine and unaffected: She plays with them, bounces them up and down, cheering with delight, never seeming to tire of feeling their soft weight in her hands.");
 
 	output("\n\n<i>“I have boobies, you guys!”</i> she exclaims, one last time. She grins slyly. <i>“They could be a lil bigger though, don’t you think?”</i> She laughs at the explosion of comments in the feed this precipitates. <i>“Maybe I’ll put on another, even better show, sometime soon. I’ll need to get more subscribers if that’s gonna happen... prove to my owner it’s worth the effort. Well... see you guys. Thanks so much for watching. I’ve gotta go report to my owner. [pc.He]’s gonna want to, you know...”</i> she giggles, massaging her tits. <i>“...try me out.”</i>");
 	
