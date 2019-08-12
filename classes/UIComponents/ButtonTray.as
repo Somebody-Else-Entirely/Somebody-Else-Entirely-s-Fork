@@ -184,16 +184,24 @@
 		 */
 		private function ButtonPageClickHandler(e:Event = null):void
 		{
+			if (!(e.currentTarget as SquareButton).isActive) return;
 			var forward:Boolean = ((e.currentTarget as SquareButton).name == "buttonPageNext");
 			
 			if (forward)
 			{
-				execButtonPageNext();
+				buttonPage++;
 			}
 			else
 			{
-				execButtonPagePrevious();
+				buttonPage--;
 			}
+			
+			if (buttonPage < 1) buttonPage = 1;
+			if (buttonPage > 4) buttonPage = 4;
+			
+			resetButtons();
+			
+			CheckPages();
 		}
 		
 		private function CheckPages():void
@@ -235,26 +243,6 @@
 			{
 				_buttonPagePrev.Deactivate();
 			}
-		}
-		
-		public function execButtonPageNext():void
-		{
-			if (_buttonPageNext.isActive == false || buttonPage >= 4) return;
-			
-			buttonPage++;
-			
-			resetButtons();
-			CheckPages();
-		}
-		
-		public function execButtonPagePrevious():void
-		{
-			if (_buttonPagePrev.isActive == false || buttonPage <= 1) return;
-			
-			buttonPage--;
-			
-			resetButtons();
-			CheckPages();
 		}
 		
 		/**

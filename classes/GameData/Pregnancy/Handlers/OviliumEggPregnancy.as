@@ -25,7 +25,7 @@ package classes.GameData.Pregnancy.Handlers
 			_ignoreMotherInfertility = true;
 			_ignoreFatherInfertility = true;
 			_allowMultiplePregnancies = true;
-			_canImpregnateButt = true;
+			_canImpregnateButt = false;
 			_canImpregnateVagina = true;
 			_canFertilizeEggs = false;
 			_pregnancyQuantityMinimum = 12;
