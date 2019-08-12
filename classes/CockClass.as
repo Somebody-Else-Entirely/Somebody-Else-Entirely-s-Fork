@@ -153,11 +153,8 @@
 		public function delFlag(arg:int):void
 		{
 			//Find and destroy it.
-			var i:int = (cockFlags.length - 1);
-			while (i >= 0)
-			{
-				if(cockFlags[i] == arg) cockFlags.splice(i, 1);
-				i--;
+			for(var x:int = 0; x < cockFlags.length;x++) {
+				if(arg == cockFlags[x]) cockFlags.splice(x,1);
 			}
 		}
 		public function clearFlags():void {

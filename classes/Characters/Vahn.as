@@ -9,35 +9,27 @@
 	{
 		public function Vahn()
 		{
-			_latestVersion = 1;
-			version = _latestVersion;
-			_neverSerialize = true;
+			this._latestVersion = 1;
+			this.version = _latestVersion;
+			this._neverSerialize = true;
 			
-			short = "Vahn";
-			originalRace = "ausar";
-			a = "";
-			capitalA = "";
-			long = "";
-			customDodge = "";
-			customBlock = "";
-			isPlural = false;
+			this.short = "Vahn";
+			this.originalRace = "ausar";
+			this.a = "";
+			this.capitalA = "";
+			this.long = "";
+			this.customDodge = "";
+			this.customBlock = "";
+			this.isPlural = false;
 			
-			inventory = [];
+			this.inventory = [];
 			
 			keeperBuy = "Unneeded";
 			
-			typesBought = [];
-			sellMarkup = 1.0;
-			buyMarkdown = .6;
-			createPerk("SHIP VENDOR");
-			
-			if(!hasCock()) createCock();
-			shiftCock(0, GLOBAL.TYPE_CANINE);
-			cocks[0].cLengthRaw = 10;
-			cocks[0].flaccidMultiplier = 0.5;
-			balls = 2;
-			ballSizeRaw = 8;
-			createPerk("Fixed CumQ", 1000, 0, 0, 0);
+			this.typesBought = [];
+			this.sellMarkup = 1.0;
+			this.buyMarkdown = .6;
+			this.createPerk("SHIP VENDOR");
 		}
 		override public function get bustDisplay():String
 		{

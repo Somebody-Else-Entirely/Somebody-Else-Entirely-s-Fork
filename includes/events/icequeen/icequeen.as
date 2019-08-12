@@ -49,11 +49,6 @@ public function showZaalt(nude:Boolean = false):void
 	else showName("ICE\nQUEEN");
 }
 
-public function zaaltImprisoned():Boolean
-{
-	return (flags["ICEQUEEN COMPLETE"] == 2);
-}
-
 public function iceQueenMessageHelpII():void
 {
 	shipLocation = "SPACE";

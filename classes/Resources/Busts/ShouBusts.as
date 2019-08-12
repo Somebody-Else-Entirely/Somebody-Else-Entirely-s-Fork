@@ -249,11 +249,6 @@
 		[Embed(source = "../../../assets/images/npcs/shou_puppy/embry_3_nude.png", mimeType = "image/png")]
 		public var Bust_EMBRY_3_NUDE:Class;
 
-		[Embed(source = "../../../assets/images/npcs/shou_puppy/fadil.png", mimeType = "image/png")]
-		public var Bust_FADIL:Class;
-		[Embed(source = "../../../assets/images/npcs/shou_puppy/fadil_nude.png", mimeType = "image/png")]
-		public var Bust_FADIL_NUDE:Class;
-
 		[Embed(source = "../../../assets/images/npcs/shou_puppy/fazian.png", mimeType = "image/png")]
 		public var Bust_FAZIAN:Class;
 		[Embed(source = "../../../assets/images/npcs/shou_puppy/fazian_1.png", mimeType = "image/png")]
@@ -1000,11 +995,6 @@
 			public var Full_EMBRY_3:Class;
 			[Embed(source = "../../../assets/images/npcs/shou_puppy/HR/embry_3_nude.png", mimeType = "image/png")]
 			public var Full_EMBRY_3_NUDE:Class;
-
-			[Embed(source = "../../../assets/images/npcs/shou_puppy/HR/fadil.png", mimeType = "image/png")]
-			public var Full_FADIL:Class;
-			[Embed(source = "../../../assets/images/npcs/shou_puppy/HR/fadil_nude.png", mimeType = "image/png")]
-			public var Full_FADIL_NUDE:Class;
 
 			[Embed(source = "../../../assets/images/npcs/shou_puppy/HR/fazian.png", mimeType = "image/png")]
 			public var Full_FAZIAN:Class;

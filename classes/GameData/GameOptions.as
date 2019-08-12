@@ -28,7 +28,6 @@ package classes.GameData
 			showRoomAndSceneNames = true;
 			tempHideRoomAndSceneNames = false;
 			seasonalOverridePreferences = { };
-			samePageLog = false;
 		}
 		
 		public var primaryBustArtist:String = "SHOU";
@@ -63,9 +62,6 @@ package classes.GameData
 		// Seasonal content
 		public var seasonalOverridePreferences:Object;
 		
-		//Do log events generate their own page
-		public var samePageLog:Boolean;
-
 		// Text Settings
 		
 		// FontSize
