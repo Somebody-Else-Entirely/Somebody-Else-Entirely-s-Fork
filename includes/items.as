@@ -1,3 +1,4 @@
+import classes.Characters.Kiona;
 import classes.Characters.Lerris;
 import classes.Characters.PlayerCharacter;
 import classes.Characters.Vahn;
@@ -712,11 +713,12 @@ public function buyShipFitItem(newScreen:Boolean = false):void
 	output("Buying a module will result in it being immediately installed on your ship. They’re too large to carry or transport in any other way. The cost of installation is included in the price.\n\n");
 	output("<b>Unused Upgrade Slots:</b> " + (ship.shipCapacity()-ship.inventory.length));
 	output("\n<b>Unused Weapon Hardpoints:</b> " + (ship.shipGunCapacity() - ship.listShipWeapons().length));
-	output("\n<b>Current Crew Capacity:</b> " + ship.shipCrewCapacity() + "\n\n");
-	output("<b><u>Modules For Sale & Fit:</u></b>");
+	output("\n<b>Current Crew Capacity:</b> " + ship.shipCrewCapacity());
 	var temp:Number = 0;
-	var canBuy:Boolean = (ship.shipCapacity()-ship.inventory.length > 0)
+	var canBuy:Boolean = (ship.shipCapacity() > ship.inventory.length);
 	var hasGunRoom:Boolean = (ship.shipWeaponCapacity() > ship.listShipWeapons().length);
+	if(!hasGunRoom) output("\n\n<b>Warning:</b> Your ship has no more hardpoints to equip weapons to.");
+	output("\n\n<b><u>Modules For Sale & Fit:</u></b>");
 	clearMenu();
 	for(var i:int = 0; i < shopkeep.inventory.length; i++)
 	{
@@ -724,6 +726,7 @@ public function buyShipFitItem(newScreen:Boolean = false):void
 		if(temp > pc.credits) output("\n<b>(Too Expensive)</b> ");
 		else if(!canBuy) output("\n<b>(No Room)</b> ");
 		else if(shopkeep.inventory[i].type == GLOBAL.RANGED_WEAPON && !hasGunRoom) output("\n<b>(Weapons Full)</b> ");
+		else if(shopkeep.inventory[i].shields > 0 && !ship.hasShieldGenerator(true)) output("\n<b>(Needs Shield Generator)</b> ");
 		else output("\n");
 		output(StringUtil.upperCase(shopkeep.inventory[i].description, false) + " - " + temp + " credits.");
 		if(temp <= pc.credits) 
@@ -785,8 +788,8 @@ public function unfitShipItem(newScreen:Boolean = false):void
 	output("Ship modules are too large for you to conveniently store. If you want to remove a fitted module, you’ll have to sell it.\n\n");
 	output("<b>Unused Upgrade Slots:</b> " + (ship.shipCapacity()-ship.inventory.length));
 	output("\n<b>Unused Weapon Hardpoints:</b> " + (ship.shipGunCapacity() - ship.listShipWeapons().length));
-	output("\n<b>Current Crew Capacity:</b> " + ship.shipCrewCapacity() + "\n\n");
-	output("<b><u>Currently Fitted Modules:</u></b>");
+	output("\n<b>Current Crew Capacity:</b> " + ship.shipCrewCapacity());
+	output("\n\n<b><u>Currently Fitted Modules:</u></b>");
 	if(!(ship.rangedWeapon is EmptySlot)) output("\n\\\[<b>Integrated</b>\\\] " + StringUtil.upperCase(ship.rangedWeapon.longName));
 	if(!(ship.meleeWeapon is EmptySlot)) output("\n\\\[<b>Integrated</b>\\\] " + StringUtil.upperCase(ship.meleeWeapon.longName));
 	if(!(ship.accessory is EmptySlot)) output("\n\\\[<b>Integrated</b>\\\] " + StringUtil.upperCase(ship.accessory.longName));
@@ -901,16 +904,16 @@ public function buyItem(quantity:int=1):void {
 			{
 				temp = Math.round(temp * pc.keyItemv1("Coupon - Shear Beauty")) + temp * (quantity-1);
 			}
-			/*
 			else if (shopkeep is Kiona && kionaCreditOwed() > 0)
 			{
 				temp = (temp * quantity) - kionaCreditOwed();
 				if (temp < 0) temp = 0;
-			}*/
+			}
 			else
 			{
 				temp = temp * quantity;
 			}
+
 			// Listing inventory exceptions
 			if(shopkeep is VendingMachine)
 			{
@@ -1145,13 +1148,13 @@ public function buyItemGo(arg:Array):void {
 	}
 	if(usedCoupon) output("The coupon saved on your codex is used and instantly changes the final price. ");
 	
-	/*if (shopkeep is Kiona) kionaBuyUsingStoreCredit(arg.description,price);
+	if (shopkeep is Kiona) kionaBuyUsingStoreCredit(arg[0].description,price);
 	else
-	{*/
-	output("You purchase " + arg[0].description + "(x" + arg[1] + ") for " + num2Text(price) + " credits.");
-	pc.credits -= price;
-	//}
-	
+	{
+	  output("You purchase " + arg[0].description + "(x" + arg[1] + ") for " + num2Text(price) + " credits.");
+	  pc.credits -= price;
+	}
+
 	// Renamed from lootList so I can distinguish old vs new uses
 	var purchasedItems:Array = new Array();
 	var stackSize:Number = arg[0].stackSize;
@@ -1452,9 +1455,12 @@ public function sellItemMulti(arg:Array):void
 	
 	sellItemBonus(soldItem, soldPrice);
 	
-	pc.credits += soldPrice;
-	
-	output("You sell " + soldItem.description + " (x" + soldNumber + ") for " + num2Text(soldPrice) + " credits.");
+	if (shopkeep is Kiona) kionaSellUsingStoreCredit(soldItem.description,soldPrice,soldNumber);
+	else
+	{
+		pc.credits += soldPrice;	
+		output("You sell " + soldItem.description + " (x" + soldNumber + ") for " + num2Text(soldPrice) + " credits.");
+	}
 	
 	// Special Events
 	if(soldItem is GooArmor) output("\n\n" + gooArmorInventoryBlurb(soldItem, "sell"));
@@ -1479,8 +1485,12 @@ public function sellItemGo(arg:ItemSlotClass):void {
 	
 	sellItemBonus(arg, price);
 	
-	pc.credits += price;
-	output("You sell " + arg.description + " for " + num2Text(price) + " credits.");
+	if (shopkeep is Kiona) kionaSellUsingStoreCredit(arg.description, price);
+	else
+	{
+		pc.credits += price;
+		output("You sell " + arg.description + " for " + num2Text(price) + " credits.");
+	}
 	
 	// Special Events
 	if(arg is GooArmor) output("\n\n" + gooArmorInventoryBlurb(arg, "sell"));
