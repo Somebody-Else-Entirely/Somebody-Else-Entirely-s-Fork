@@ -108,7 +108,7 @@
 			}
 		}
 		
-		// This only triggers during removal afaik, so deltaT is kinda irrelevent
+		// This only triggers during removal afaik, so deltaT is kinda irrelevant
 		public static function ClippexTF(deltaT:uint, doOut:Boolean, target:Creature, effect:StorageClass):void
 		{
 			var isPlus:Boolean = effect.value2 > 1;
@@ -296,6 +296,7 @@
 							if (target.breastRows[i].nippleType != GLOBAL.NIPPLE_TYPE_LIPPLES)
 							{
 								target.breastRows[i].nippleType = GLOBAL.NIPPLE_TYPE_LIPPLES;
+								target.breastRows[i].clearAreolaFlags();
 								//+10 lust, +3 Libido
 								target.lust(10);
 								target.slowStatGain("libido", 3);

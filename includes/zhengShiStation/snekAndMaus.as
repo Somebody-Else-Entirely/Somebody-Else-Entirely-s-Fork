@@ -164,7 +164,7 @@ public function snekHasCaughtHerselfAMaus():void
 	{
 		output("Your [pc.face] blooms with the excitement of a sneakthief inches away from claiming a purse. [pc.Moving] up to a door ajar knowing exactly what clandestine tryst you’ll find on the other side fills you with a sense of pervasive warmth. When you peer inside, a [snake.scaleColor]-scaled slyveren is pacing back and forth, arms folded imperiously beneath her massive melons. The slave-catcher’s long tongue is flittering through the air, dewy droplets flinging from the cock-pleasing flesh.");
 		output("\n\nHer vision is totally fixed on the patiently sat, [rat1.skinColor]-skinned mouse-boy. It takes a little straining on your part, but you can see the bashfully poised slyness writ upon his face as he spreads his legs apart, giving the snake-shaped sexpot a view of his veiny girth from every angle. <i>“I’ve been busy all day,”</i> he says in a voice stuck between the borders of manly and nervous. <i>“Umm... I was hoping you’d know how to take care of it again. I feel so full and it’s really distracting. If it won’t trouble you or anything...”</i>");
-		output("\n\nWith relish and grace the [snake.scaleColor]-scaled woman shifts like liquid, falling to her knees and then to her elbows in front of the furtive pi-rat’s crotch, slithering forward. <i>“Oh, its no trouble at all,”</i> she swoons, smile widening. <i>“What’s good for you is good for all of us...”</i> She braces his boner in both palms, sliding her hands up and down his eight inches in alternating rubs, lubing her " + (snake.lipColor == "black" ? "midnight" : "fuschia") + " fingers in free-flowing stickiness. <i>“...But especially for me.”</i>");
+		output("\n\nWith relish and grace the [snake.scaleColor]-scaled woman shifts like liquid, falling to her knees and then to her elbows in front of the furtive pi-rat’s crotch, slithering forward. <i>“Oh, its no trouble at all,”</i> she swoons, smile widening. <i>“What’s good for you is good for all of us...”</i> She braces his boner in both palms, sliding her hands up and down his eight inches in alternating rubs, lubing her " + (snake.lipColor == "black" ? "midnight" : "fuchsia") + " fingers in free-flowing stickiness. <i>“...But especially for me.”</i>");
 		output("\n\nThe alien asp’s greedy lips open wide as her snout descends over his oval glans. Her tongue remains outside, latching tight to the exposed underside from top to bottom, wiggling in wave-like motions. Her tip curls around one of his taut nuts while she inhales eight throbbing inches of mouse-cock like oxygen, fondling his unlicked nut adoringly. The ratty rogue’s head arches back with a long, pleased sigh, legs quivering to the serpent’s inhumanly soft touches. Like he never left (or perhaps like a trained cum-pet) he relaxes into orally-cuddled placitude.");
 		// PC not taur, has genitals
 		if (!pc.isTaur() && pc.hasGenitals())
@@ -300,7 +300,7 @@ public function watchSnekAndMausLikeSpaceDavidAttenborough():void //I think I've
 		output("\n\nImpassioned deepthroating that speaks to a lifetime of hedonism (or to a biology naturally gifted) is being performed right before your eyes. You can scarcely believe your luck in being able to witness it, and you can’t help but register <i>how lucky that little mouse is.</i> She’s working hard to get every thick load of jism packed away in his balls because she wants it that bad. Unsurprisingly, even fearsome pirates can, at the end of the day, be cock-drunk sluts who’d look more at home in a public use wall.");
 	}
 
-	output("\n\nA microsecond of relief scours through you. There’s a needling pinch; it happens so quick. You don’t know what hit you or how, but you know the payload was lust. Pure lust that lurches your [pc.hips] forward. Complimenting the effect is a phantom press to your groin");
+	output("\n\nA microsecond of relief scours through you. There’s a needling pinch; it happens so quick. You don’t know what hit you or how, but you know the payload was lust. Pure lust that lurches your [pc.hips] forward. Complementing the effect is a phantom press to your groin");
 	if (pc.hasGenitals()) output(", but particularly to your " + (pc.hasCock() ? "[pc.cocksLight]" : "[pc.pussiesLight]"));
 	output(". You fall a little closer to the ground");
 	if (pc.hasGenitals() && !pc.isTaur()) output(", [pc.hands] moving faster");
@@ -892,7 +892,7 @@ public function mausSquirtsCumWhenSurroundedByCumSlutsAsADefenseMechanism():void
 	if (pc.hasEmoteEars()) output(" between your [pc.ears]");
 	output(", scritching gestures of passive thankfulness into your scalp. All the while, you’re handling them with the fondest care. These slippery spheres thrumming in your hand with a near-boiling load are to be venerated. You knead, you squeeze, and you roll his doughy flesh between your [pc.fingers], intent on making this ripe sack the most loved on all of Zheng Shi -- at least, until you’re bumped off again.");
 	output("\n\nThis damn snake keeps getting in the way!");
-	if (pc.isBimbo()) output("\n\n<i>“Like, move over! We can’t work like this!”</i> you whine.”</i>");
+	if (pc.isBimbo()) output("\n\n<i>“Like, move over! We can’t work like this!”</i> you whine.");
 	else if (pc.isBro() || pc.isAss()) output("\n\n<i>“Get out of the way already,”</i> you bark, <i>“you’re making this harder than it needs to be!”</i>");
 	else output("\n\n<i>“Please move a little, we’re just getting in each other’s way...”</i> you murmur.");
 	output("\n\n<i>“Fine...”</i> ");
@@ -966,7 +966,7 @@ public function mausSquirtsCumWhenSurroundedByCumSlutsAsADefenseMechanism():void
 	{
 		output("\n\nHyperfocusing on the cum spilling forth is all you can (and want) to do. You’re jockeying competitively with the slyveren, mouth wide open and tongue unfurled");
 		if (pc.hasLongTongue()) output(" to your crotch");
-		output(", eager to catch the most of his glistening squirts. The lewdness of your act nicely compliments the deep satisfaction you feel at finally getting a taste of jizz.");
+		output(", eager to catch the most of his glistening squirts. The lewdness of your act nicely complements the deep satisfaction you feel at finally getting a taste of jizz.");
 		output("\n\nShe catches some of the torrential spouts, you catch the thickest gouts, and both your faces are bukkake’d in his indelicate, endless flow of spunk. His muscles have locked him into that upright position, a perfect position, you think, for splattering two awesome sluts in a volume of pressure only describable as <i>gifted.</i> Bathing in it produces a unique kind of molten bliss you would never be able to reproduce or find anywhere else.");
 		if (pc.hasGenitals())
 		{

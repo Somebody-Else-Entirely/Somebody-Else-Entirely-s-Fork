@@ -11,10 +11,10 @@ PIPPA_RECRUITED : Tracks whether Pippa has been made a crew member
 	2 - Pippa joined the crew, but was kicked off
 PIPPA_FED : Tracks how many times Pippa has been given food
 	undefined - Steele has not given Pippa any food
-PIPPA_STANDARD_MASSAGE_RECIEVED : Tracks how many times Steele has recieved a standard massage from Pippa
-	undefined - Steele has not recieved a standard massage from Pippa
-PIPPA_SPECIAL_MASSAGE_RECIEVED : Tracks how many times Steele has recieved a special massage from Pippa
-	undefined - Steele has not reieved a special massage from Pippa
+PIPPA_STANDARD_MASSAGE_RECIEVED : Tracks how many times Steele has received a standard massage from Pippa
+	undefined - Steele has not received a standard massage from Pippa
+PIPPA_SPECIAL_MASSAGE_RECIEVED : Tracks how many times Steele has received a special massage from Pippa
+	undefined - Steele has not received a special massage from Pippa
 PIPPA_HAPPY_ENDINGS - Tracks how many times Steele has gotten a happy ending from Pippa
 	undefined - Steele has not gotten any happy endings from Pippa
 PIPPA_SEXED - Tracks how many times Steele has had sex with Pippa
@@ -22,8 +22,8 @@ PIPPA_SEXED - Tracks how many times Steele has had sex with Pippa
 PIPPA_ASS_FUCKED - Tracks whether or not Steele has fucked Pippa in the ass
 	undefined/0 - Steele has not fucked Pippa in the ass
 	1 - Steele has fucked Pippa in the ass
-PIPPA_FUCKED_BY - Trackes whether or not Steele has been fucked by Pippa
-	undefiend/0 - Steele has not been fucked by Pippa
+PIPPA_FUCKED_BY - Tracks whether or not Steele has been fucked by Pippa
+	undefined/0 - Steele has not been fucked by Pippa
 	1 - Steele has been fucked by Pippa
 PIPPA_DOMINANCE - Tracks Pippa’s dominance
 	undefined/0 - Steele has not had sex with Pippa
@@ -813,6 +813,7 @@ public function pippaStandardMassage():void
 	}
 	
 	processTime(30);
+	if(pc.hasStatusEffect("Sore Counter")) soreChange(-4);
 	applyOilEffect(pc, OIL_SOURCE_STANDARD_MASSAGE);
 	pippaStandardMassagesGiven();
 	pippaAffection(1);
@@ -1144,6 +1145,7 @@ public function pippaSpecialMassageII():void
 	output("\n\nPippa collapses on top of you and just relaxes there for a little bit. Eventually she climbs off and you carefully slide off after her. She looks at you, her eyes tired, and says, <i>“I hope you enjoyed that, " + pippaCallsSteele() + ". I’m going to clean up in here and take a shower. And maybe a nap. I’ll see you later.”</i>");
 	
 	processTime(30);
+	if(pc.hasStatusEffect("Sore Counter")) soreChange(-3);
 	applyOilEffect(pc, OIL_SOURCE_SPECIAL_MASSAGE);
 	pippaSpecialMassagesGiven();
 	pippaAffection(3);

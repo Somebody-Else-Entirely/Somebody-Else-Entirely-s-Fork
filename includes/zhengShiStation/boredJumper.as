@@ -268,7 +268,7 @@ public function sweatBunny69Loss2():void
 	if(pc.isBimbo()) output("You cry in out in pure, wanton need, delirious at the chance to press your [pc.lips] to her crotch.");
 	else if(pc.libido() >= 50) output("Your murmur your assent.");
 	else output("You shudder in sudden awareness of what’s about to happen, reeling your tongue back in it, but it’s too late.");
-	output("\n\n<i>“Here you go.”</i> The bunny-slut’s tongue dips into your navel while her hips swivel up and back, planting her balls on your forehead and and directing her [enemy.cockNoun] toward your mouth. Pre and sweat dribble from the tip ");
+	output("\n\n<i>“Here you go.”</i> The bunny-slut’s tongue dips into your navel while her hips swivel up and back, planting her balls on your forehead and directing her [enemy.cockNoun] toward your mouth. Pre and sweat dribble from the tip ");
 	if(pc.isBimbo()) output("into your greedy, cum-hungry maw");
 	else if(pc.libido() >= 50) output("into your wide-open, accepting mouth");
 	else output("onto your [pc.lipsChaste], shocking you into a gasp");
@@ -679,7 +679,7 @@ public function sweatBunSlickyslickTitbang2():void
 	else if(pc.isBimbo()) output(" And you don’t care in the slightest. You love cum! You’d take a bath in if you could, let her fuck you in a tub until bunny-spunk is sloughing over the edge.");
 	else 
 	{
-		output(" And you don’t mind much at all. A deep sense of emotional satisfaction rises alongside the tide of bunny-spunk. The knowledge that your tits drove her to such a state is pleasing in a way that nicely compliments your unsated arousal. You have no doubt you’ll be masturbating to this once she’s gone, but for now, you revel in it, little more than ");
+		output(" And you don’t mind much at all. A deep sense of emotional satisfaction rises alongside the tide of bunny-spunk. The knowledge that your tits drove her to such a state is pleasing in a way that nicely complements your unsated arousal. You have no doubt you’ll be masturbating to this once she’s gone, but for now, you revel in it, little more than ");
 		if(pc.bRows() == 1) output("a set");
 		else output("sets");
 		output(" of too-happy boobs serving as a cum-dumpster.");
@@ -2488,7 +2488,7 @@ public function heatSexLaquineJumper():void
 	if(!pc.inHeat())
 	{
 		output("\n\nAch, it’s fucking hot down here, and yet she looks just fine and dandy even in that sexy jumpsuit of hers. Wait... it’s hot... That’s it! You look into your bag and dig out a set of colorless pills - two very special capsules rest in your palm as you regard her with a devious mind. Before you continue, the question ‘why’ comes to mind, like your body or some foreign entity is telling you to <i>really</i> consider what you’re doing. Why <i>are</i> you thinking of this? Giving a lust-addled hermaphroditic laquine an extremely potent fertility pill and taking one yourself? You must be crazy. <b>Sex crazy.</b> Purposely inflicting breeding season on yourself and someone from a race of gifted breeders, what are they gonna say about you? Wait, who’s they?");
-		output("\n\nNevermind. Whatever doubts you have wash away with the next emerging layer of sweat as you tell her to get up and hold out her hand. Warmth and pheromones both pour from every part of your body as you simply imagine the mind-blowing sex to come. Just how will the both of you end up when all’s fucked and bred in this dark, miserably hot cave? This... Oh <i>this</i> oughta be fun.");
+		output("\n\nNever mind. Whatever doubts you have wash away with the next emerging layer of sweat as you tell her to get up and hold out her hand. Warmth and pheromones both pour from every part of your body as you simply imagine the mind-blowing sex to come. Just how will the both of you end up when all’s fucked and bred in this dark, miserably hot cave? This... Oh <i>this</i> oughta be fun.");
 		output("\n\nThe somewhat delirious rabbit eyes your madly blushing face curiously, then the pills in your [pc.hand], wondering what you’re up to. She says nothing, only able to guess at what lewd thoughts swim behind your [pc.eyes]. You take one pill between your thumb and finger and hold it out to her. Still confused, the stewing slut takes it, but seems... worried now.");
 
 		// PC Bimbo
@@ -2630,7 +2630,7 @@ public function boredJumperHeatSexIII():void
 		flags["BJUMPER_HEAT_SEX"] = 1;
 		pc.loadInCunt(enemy,2);	
 	}
-	output("\n\nYou’re flipped onto your back, face to face with the lapine herm. She tears yanks her suit apart before picking you up off the ground. You soon find yourself pinned against the nearest wall. She spreads your legs by the thigh, leaning you forward a bit until her [enemy.cockHead] slips past your [pc.clit]. Is she...? Oh no...");
+	output("\n\nYou’re flipped onto your back, face to face with the lapine herm. She tears and yanks her suit apart before picking you up off the ground. You soon find yourself pinned against the nearest wall. She spreads your legs by the thigh, leaning you forward a bit until her [enemy.cockHead] slips past your [pc.clit]. Is she...? Oh no...");
 	processTime(30);
 	pc.orgasm();
 	flags["BJUMPER_HEAT_SEX"] = 1;

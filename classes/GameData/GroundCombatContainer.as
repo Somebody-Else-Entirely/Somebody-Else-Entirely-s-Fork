@@ -884,6 +884,21 @@ package classes.GameData
 					else output("\n\n<b>" + StringUtil.capitalize(target.getCombatName(), false) + " " + (!target.isPlural ? "is" : "are") + " practically invisible thanks to " + target.getCombatPronoun("hisher") + " stealth field generator.</b>");
 				}
 			}
+			if(target.hasStatusEffect("Stealth Field"))
+			{
+				target.addStatusValue("Stealth Field",1,-1);
+				if(target.statusEffectv1("Stealth Field") <= 0)
+				{
+					if (target.hasPerk("PCs")) output("\n\n<b>Your stealth field collapses.</b>");
+					else output("\n\n<b>" + StringUtil.capitalize(possessive(target.getCombatName()), false) + " stealth drops abruptly!</b>");
+					target.removeStatusEffect("Stealth Field");
+				}
+				else 
+				{
+					if (target.hasPerk("PCs")) output("\n\n<b>You are practically invisible thanks to your stealth field.</b>");
+					else output("\n\n<b>" + StringUtil.capitalize(target.getCombatName(), false) + " " + (!target.isPlural ? "is" : "are") + " practically invisible thanks to its stealth field.</b>");
+				}
+			}
 	
 			if (target.hasStatusEffect("Taking Cover"))
 			{
@@ -1364,6 +1379,23 @@ package classes.GameData
 				var damage:TypeCollection = new TypeCollection( { pheromone: 5 + rand(4) } );
 				applyDamage(damage.multiply(totalZil), null, target, "minimal");
 			}
+
+			// First turn does nothing, then three turns of 15 healing.
+			if (target.hasStatusEffect("Healing Spray"))
+			{
+				if (target.statusEffectv1("Healing Spray") > 0)
+				{
+					var sprayHealing:int = Math.min(target.HPMax() - target.HP(), 15);
+					if (sprayHealing > 0) output("\n\nThe healing spray continues to heal " + (target is PlayerCharacter ? "your" : target.getCombatName() + "’s") + " wounds! (<b>H: +<span class='hp'>" + sprayHealing + "</span></b>)");
+					else output("\n\nThe healing spray " + (target is PlayerCharacter ? "you have on" : "on " + target.getCombatName()) + " does nothing, having no wounds to heal.");
+				}
+				target.addStatusValue("Healing Spray",1,1);
+				if (target.statusEffectv1("Healing Spray") > 3)
+				{
+					output(" <b>It’s duration has run out!</b>");
+					target.removeStatusEffect("Healing Spray");
+				}
+			}
 		}
 		
 		//Lowers v1 by 1 and removes the status if it's value is 0 afterwards, hope there wasn't a function to do this already
@@ -1544,7 +1576,9 @@ package classes.GameData
 				addButton(4, "Do Nothing", waitRound);
 				return;
 			}
-			
+
+			if (ZilMaleTreated.processBeeMuskStun(pc)) return;
+
 			if (hasEnemyOfClass(MyrGoldOfficer) && flags["FEDERATION_QUEST_WINDOW"] == 1)
 			{
 				output("\n\n<b>Your vision is obstructed by smoke, making you effectively blind!</b>");
@@ -1668,6 +1702,7 @@ package classes.GameData
 			var crews:Array = kGAMECLASS.getGunnersOnShipNames();
 			var turrets:Number = 0;
 			var energyCost:Number = 0;
+			var energyCosts:Array = [];
 			output("<b>Currently Fitted Weapons</b>\n<u>Energy | Name</u>");
 			
 			for(var i:int = 0; i < weapons.length; i++)
@@ -1680,21 +1715,34 @@ package classes.GameData
 				}
 				else 
 				{
+					var chargeCost:Boolean = true;
 					output("\n" + weapons[i].shieldDefense + "\t| " + StringUtil.upperCase(weapons[i].longName));
 					if(weapons[i].hasFlag(GLOBAL.ITEM_FLAG_TURRET)) 
 					{
 						turrets++;
-						if(turrets > crews.length) output(" (<b>Insufficient crew</b> to man turret.)");
+						if(turrets > crews.length)
+						{
+							output(" (<b>Insufficient crew</b> to man turret.)");
+							chargeCost = false; // Does not count against cost.
+						}
 						else output(" (Crewed.)");
 					}
 					//addButton(i,weapons[i].shortName,toggleWeapon,[arg,weapons[i]],StringUtil.upperCase(weapons[i].longName),"Disable this weapon.");
 					kGAMECLASS.addItemButton(i, weapons[i], toggleWeapon, [arg,weapons[i]], null, null, pc);
-					energyCost += weapons[i].shieldDefense;
+					if(chargeCost)
+					{
+						energyCost += weapons[i].shieldDefense;
+						energyCosts.push(weapons[i].shieldDefense);
+					}
 				}
 			}
+			output("\n");
 			var energyChange:Number = (arg as ShittyShip).shipPowerGen() - energyCost;
-			output("\n\nProjected Energy Use: " + energyCost + "\nProjected Energy Generation: " + (arg as ShittyShip).shipPowerGen() + "\n<b>Projected Energy Change:</b> " + (energyChange >= 0 ? "+":"") + energyChange + "\n");
-			if(arg.energy() + energyChange < 0) output("\n\n<b>Warning: INSUFFICIENT POWER TO FIRE ONLINE WEAPON SYSTEMS.</b>");
+			output("\nCurrent Energy Stored: " + arg.energy());
+			output("\nProjected Energy Use: " + energyCost);
+			output("\nProjected Energy Generation: " + (arg as ShittyShip).shipPowerGen());
+			output("\n<b>Projected Energy Change:</b> " + (energyChange >= 0 ? "+":"") + energyChange);
+			if((arg.energy() - energyCost) < 0) output("\n\n<b>Warning: INSUFFICIENT POWER TO FIRE" + ((energyCosts.length > 1 && Math.min.apply(null, energyCosts) <= arg.energy()) ? " ALL" : "") + " ONLINE WEAPON SYSTEMS.</b>");
 			output("\n\nSelect equipped weapons to toggle on/off below, or choose back to return to main combat menu.");
 			addButton(14, "Back", generateCombatMenu, true);
 		}
@@ -3987,7 +4035,7 @@ package classes.GameData
 			var damIdx:uint = 0;
 			var tarShields:TypeCollection = target.getShieldResistances();
 			var tarHPs:TypeCollection = target.getHPResistances();
-			output("\n\n<b>Shield Defense: </b>" + target.shield.shieldDefense);
+			output("\n\n<b>Shield Defense: </b>" + target.shieldDefense());
 			output("\n<b>Shield Resistances:</b>");
 			for (var i:int = 0; i < DamageType.HPDamageTypes.length - 1; i++)
 			{

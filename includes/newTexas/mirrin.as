@@ -358,7 +358,9 @@ public function repeatMirrinApproach():void
 		processTime(2);
 		clearMenu();
 		addButton(0,"Yes...",mirrinFindsOutYoureACrappyBreeder,undefined,"Yes...","Ohhh, well... hmmm.");
-		if (pc.fertility() > 0 && !pc.hasSSTD()) addButton(1,"No",wereGoodToMakeBabbysDragonLady,undefined,"No","You’re all clean and raring to uhhh... well, presumably do some breeding...???");
+		if(pc.hasSSTD()) addDisabledButton(1,"No","No","You need to take care of your SSTD first!");
+		else if((!pc.hasVagina() || pc.fertility() <= 0) && (!pc.hasCock() || pc.virility() <= 0)) addDisabledButton(1,"No","No","You need to have a fertile vagina or virile penis in order to do this!");
+		else addButton(1,"No",wereGoodToMakeBabbysDragonLady,undefined,"No","You’re all clean and raring to uhhh... well, presumably do some breeding...???");
 	}
 	else if (flags["MIRRIN_PREGSTAGE"] == 3 || flags["MIRRIN_PREGSTAGE"] == 4)
 	{
@@ -372,7 +374,9 @@ public function repeatMirrinApproach():void
 
 		processTime(1);
 		clearMenu();
-		if (!pc.hasVagina() && pc.cockThatFits(mirrinMaxSize) < 0) addDisabledButton(0,"Yeah","Yeah","Can’t make babies without proper equipment, m8.");
+		if(pc.hasSSTD()) addDisabledButton(0,"Yeah","Yeah","You need to take care of your SSTD first!");
+		else if((!pc.hasVagina() || pc.fertility() <= 0 || pc.isFullyWombPregnant()) && (!pc.hasCock() || pc.virility() <= 0)) addDisabledButton(0,"Yeah","Yeah","You need to have an available fertile vagina or a virile penis in order to do this!");
+		else if((!pc.hasVagina() || pc.fertility() <= 0 || pc.isFullyWombPregnant()) && pc.cockThatFits(mirrinMaxSize) < 0) addDisabledButton(0,"Yeah","Yeah","Can’t make babies without proper equipment, m8.");
 		else addButton(0,"Yeah",finallyMakeMirrinBabusForRealThisTimeTotally,undefined,"Yeah","Time to make babies!");
 		addButton(1,"No",function ():void
 		{
@@ -1284,7 +1288,7 @@ public function talkToMirrinAbootYuuuu():void
 	author("SoAndSo");
 	output("You go with her original question.");
 	output("\n\n<i>“Well...”</i> you begin, starting with your parents, childhood and so on. You talk about your career as [pc.aStartingCareer] and the early exploits you’ve gone through, the planets you’ve seen, the locals you’ve... become <i>very</i> familiar with. Mirrin laughs with her hand over her mouth at some of those tales.");
-	output("\n\nThe talk quickly shifts to the mess surrounding your inheritance of SteeleTech, the mention of which makes the attentive Mirrin raise an eyebrow.");
+	output("\n\nThe talk quickly shifts to the mess surrounding your inheritance of Steele Tech, the mention of which makes the attentive Mirrin raise an eyebrow.");
 	output("\n\n<i>“That’s you?? I thought Steele was just a common name. But holy <i>shit</i>, that’s actually pretty baller,”</i> she exclaims, inching ever so slightly closer to you. <i>“So what, you’ve got your ship here and just do anything anywhere being the baddest ass?”</i>");
 	output("\n\nMy ass isn’t <i>that</i> bad, you think to yourself. Oh wait.");
 	output("\n\n<i>“Uh, yes! At the minute, I’m trying to out-do my cousin,”</i> you say, ‘cousin’ said through gritted teeth, <i>“and we’ve got this whole ace space-race...? Going on.”</i>");
@@ -1559,7 +1563,7 @@ public function ohJeezRickMirranIsGonnaFuckYa():void
 	showMirrin(true);
 	pc.lust(100);
 	author("SoAndSo");
-	output("Without any other words, the domineering qilin thrusts her hips toward your face. The largest of her two members - a 16’’ python of a horsedick - pushes aggresively against your [pc.lips].");
+	output("Without any other words, the domineering qilin thrusts her hips toward your face. The largest of her two members - a 16\" python of a horsedick - pushes aggresively against your [pc.lips].");
 	output("\n\n<i>“<b>Suck.</b>”</i>");
 	output("\n\nYou’re in no position to refuse... you open your mouth as wide as you feel you can, enough for her pulsing cockhead to sit in it comfortably. At least it only gets thicker the further down you go! Both of her cocks sit perfectly in the middle of your [pc.fullChest], using your flesh and [pc.skinFurScales] as an extra layer of friction. They’re not even hard yet...");
 	output("\n\nShe pushes just a little bit more aaand it’s in, filling up most of your mouth in an instant. Using your [pc.tongue], you eagerly try to find her cumslit. A stifled squeal from your dragon lover confirms your skill at finding it. You look up with your eyes and she’s looking back, biting hard on her bottom lip.");
@@ -1610,7 +1614,7 @@ public function firstTimeMirrinSexActual(arg:int = 1):void
 
 		output("\n\nYou nod weakly, looking down to the floor. It’s about 5 feet to the ground...");
 
-		output("\n\nShe holds up her biggest horsemember in her other hand, its tip covered in an extra smear of EasyFit. She guides it to your floor-facing, exposed [pc.asshole] and presses <i>you</i> down on to it. Oh shit, it’s <b>huge</b>. Your tensed up [pc.asshole] gives way all the more easily thanks to the smear of cream, stretching painfully around the 4’’ wide horsecock.");
+		output("\n\nShe holds up her biggest horsemember in her other hand, its tip covered in an extra smear of EasyFit. She guides it to your floor-facing, exposed [pc.asshole] and presses <i>you</i> down on to it. Oh shit, it’s <b>huge</b>. Your tensed up [pc.asshole] gives way all the more easily thanks to the smear of cream, stretching painfully around the 4\" wide horsecock.");
 		output("\n\nAs you sink lower, that thickness grows and grows, stopping once you’re speared halfway down her rock-solid tool. Some nubbly sensation tortures your slick [pc.asshole]");
 		if(pc.hasCock()) output(" and tender prostate");
 		output(". You look to see that the bottom of her cock is covered in coil-like ridges that extend down from tip to bottom. <i>Ow</i>.");
@@ -1832,9 +1836,9 @@ public function mirrinYerConfidenceBaaaaaeby():void
 //Scene concepts and requirements:
 //Oil Worship into Double Handjob: All PC’s. Very messy.
 //Deep DP: PC has vagina, height 80<.
-//Sparr Fight into Oral for the winner: PC has cock at 18’’< and/or vagina. High PC stats = wins.
+//Sparr Fight into Oral for the winner: PC has cock at 18" < and/or vagina. High PC stats = wins.
 //Humiliating Pork: (aside sounding like a bad chinese translation of something with bacon in it) REWORKED: All PC’s. Pure humiliation anal sex. Special things happen when PC thickness >65. That’s what ya get for being a fatty fat person, fatty. YEAH, YOU GET HOT BUTTSEX MY BRO.
-//Dommy Oral: PC has cock at 18’’< and/or vagina. A merging of ‘TongueFun’ for ease. Written into Sparr Fight because it essentially ends up the same anyway if you win.
+//Dommy Oral: PC has cock at 18" < and/or vagina. A merging of ‘TongueFun’ for ease. Written into Sparr Fight because it essentially ends up the same anyway if you win.
 
 //Her Place
 //tooltip: Into the dragon’s lair...
@@ -2185,7 +2189,7 @@ public function winAgainstMirrin():void
 		output(" and [pc.pussy]. Her tongue is already hanging out and slathered up, aiming downwards. She shifts herself down the bed somewhat, looking for the right angle of attack. Pressing her face down to your [pc.pussy], both of her calloused, clawed hands gripping comfortably on your [pc.cock " + cIdx + "]. Already she’s pumping at your shaft, the double grip of her hands impossible to resist through will alone.");
 		output("\n\nSimultaneously, her thick, lively tongue trails itself across your labia, already teasing out your wetness.");
 		if(pc.wetness(0) >= 4) output(" It doesn’t take long for your [pc.cunt] to get particularly juicy.");
-		output(" Without warning, it slithers right roughly into your [pc.pussy], recieving a hot, wet welcome.");
+		output(" Without warning, it slithers right roughly into your [pc.pussy], receiving a hot, wet welcome.");
 		if(pc.looseness(0) >= 4) output(" Your [pc.vagina] is already used to such an invasion and gives her no resistance at all!");
 		output(" A throaty groan escapes from your [pc.lips] as both shaft and snatch get worked over at the same time.");
 		if(pc.cockTotal() > 1) output(" You’re not even concerned with your untouched [pc.cock " + cIdxB + "] while getting such special treatment.");

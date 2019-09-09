@@ -2,7 +2,7 @@
 
 //Notes
 //Run by Cyber Punks? Some cyber dealie to keep ‘em pacified maybe,
-//Nominal credit charge for occupants (maybe one with their price tweaked to ‘free’ for extra degredation) or buy a “Puss Pass” key item to skip the payment prompt.
+//Nominal credit charge for occupants (maybe one with their price tweaked to ‘free’ for extra degradation) or buy a “Puss Pass” key item to skip the payment prompt.
 //holo pics of the occupants on each stall
 //If enough stalls are added, put an ‘availability’ time span on them, where somebody else is using the stall. Possibly add opportunities where you can interact with a pirate who is using one of the stalls during this ‘down time’.
 //
@@ -539,6 +539,7 @@ public function blackDragonessUse():void
 {
 	clearOutput();
 	showName("FANFIR\nPUSSY");
+	showBust("WALL_FANFIR");
 
 	author("Adjatha");
 	output("You select a particularly prodigious posterior and take a moment to take it all in. By far the largest occupant of the Tap-Hall, this girl’s upper half is hidden on the other side of the wall, but the holo-pic next on the wall shows a mature, fanfir woman with narrowed eyes and a defiant glower, with a price at the bottom. Her lower half is at least 6’ tall, from her fat-tailed booty, down her thick, digitigrade legs to her taloned feet. An adjustable elevating platform has been installed for customers of every size.");
@@ -568,6 +569,7 @@ public function pussyDatGryvain(x:int):void
 	
 	author("Adjatha");
 	showName("FANFIR\nPUSSY");
+	showBust("WALL_FANFIR");
 
 	//no puss pass:
 	if(!pc.hasKeyItem("Puss Pass")) 
@@ -587,7 +589,7 @@ public function pussyDatGryvain(x:int):void
 	//pc under 8’:
 	if(pc.tallness < 8*12) output("tap the controls to raise dais until you’re at a more accommodating height.");
 	else output("ignore the controls and instead run your palms across her supple hindquarters, delighting in an ass sized perfectly for your own titanic stature.");
-	output(" You slide your girth atop the deep vale of her moon-wide cheeks, just under her rotund tail. You can feel the draconic captive tense, but the yielding warmth of her torso-sized bubble butt invites more vigorous admirition. Sinking your fingers into the malleable mountains of her aft orbs, you delight in the silky softness of her fine scale-skin. With just a bit of gripping force, your palms vanish into the doughy depths of her ample cushions. You squeeze and rub, rolling the massive mounds in slow clapping circles, gradually swallowing your [pc.cocks] into the fathomless cleft of the pillowy posterior.");
+	output(" You slide your girth atop the deep vale of her moon-wide cheeks, just under her rotund tail. You can feel the draconic captive tense, but the yielding warmth of her torso-sized bubble butt invites more vigorous admiration. Sinking your fingers into the malleable mountains of her aft orbs, you delight in the silky softness of her fine scale-skin. With just a bit of gripping force, your palms vanish into the doughy depths of her ample cushions. You squeeze and rub, rolling the massive mounds in slow clapping circles, gradually swallowing your [pc.cocks] into the fathomless cleft of the pillowy posterior.");
 	output("\n\nRiding the tidal waves of her velvet hinterlands is a massaging delight, but your ");
 	if(pc.libido() <= 33) output("rising, repressed desires");
 	else if(pc.libido() <= 66) output("eager, unrestrained appetites");
@@ -598,7 +600,7 @@ public function pussyDatGryvain(x:int):void
 	if(pc.cocks[x].thickness() < 3) output("There is no canyon here, only a taut channel of rippling muscle that suckles your inches as eagerly as if you were twice her size. Almost virginal pressure squeezes around you, her clenching lust coaxing you as deep as your body can manage.");
 	//huge cocks:
 	else if(pc.cocks[x].thickness() < 5) output("Rippling inner muscles part with suckling pressure, your obscene, breeder’s mass no hindrance when pushing into a fanfir’s pussy. Obviously accustomed to far smaller patrons, her body quivers at your girth, a gush of femme cum pouring across your length from just the first sensations of penetration.");
-	else output("Your monstrous endowment, far wider than most races can handle, meets an unusually yielding resistance. Elephantine, egg-laying hips squirm and twist as you push, inch by sweet inch through the colossal woman’s cock-stuffed tightness. Your shuddering, girthy pressure is the perfect compliment to the stretched, lust-fattened thickness of the behemoth-sized slut.");
+	else output("Your monstrous endowment, far wider than most races can handle, meets an unusually yielding resistance. Elephantine, egg-laying hips squirm and twist as you push, inch by sweet inch through the colossal woman’s cock-stuffed tightness. Your shuddering, girthy pressure is the perfect complement to the stretched, lust-fattened thickness of the behemoth-sized slut.");
 	pc.cockChange();
 	output(" You drive into her, groaning with satisfaction as the giantess’ core strokes and slurps at your [pc.cock " + x + "] with each luscious pump. The oval aperture sealing her upper half in the wall creaks with the tension your hips apply to her tremendous stern.");
 
@@ -614,6 +616,7 @@ public function moreDragonfucks(x:int):void
 	clearOutput();
 	author("Adjatha");
 	showName("FANFIR\nPUSSY");
+	showBust("WALL_FANFIR");
 	output("Despite the wordless, affectionate embrace, the temptation to put her colossal derriere through its paces proves too much and you slow your pace just enough to let you appreciate what’s to come. Raising an open-palmed hand up, you bend your waist slightly and whip around to slap one of her cheeks with a startling crack. The unexpected blow sends rippling waves from one dark-hued cheek to the other and a split second later, her nerves register the shock with an internal clenching unlike anything you’ve ever felt. Her tail pulls you tight enough that it crushes the air out of your lungs while her pussy clamps down on your stem with such force that your fingertips start tingling.");
 	output("\n\nThe hold relaxes gradually and you follow up with another slap, hard enough to leave your palm burning. Another clench and you almost lose your balance. It feels like your head is in a velvet vice for just a second before the blossoming heat of a climax cuts through the haze. The dragoness’s cunny is suckling so hard at your [pc.cock " + x + "] that you almost feel lifted off your [pc.footOrFeet]. There’s certainly no way you’re stopping now, so the spanking continues until you’re forced to switch hands from the sheer numbness in your limb. Each impact brings a fresh wave of grasping constriction that it feels like she’s vibrating - inside and out - from the punishing buffet. Her pussy clenches randomly and wildly as the paddling sparks an orgasmic feedback that robs the giantess of muscular control and milks you within an inch of your life.");
 	output("\n\nThe fanfir’s crushing depths are almost too much for your lust-sore [pc.cockHeadNoun " + x + "]. You grab hold of her wobbling haunches, all sensations in your body compressed down to the surging rush of your [pc.cockHead " + x + "].");
@@ -648,6 +651,7 @@ public function doubleBooty():void
 {
 	clearOutput();
 	showName("RASKVEL\nBOOTY");
+	showBust("WALL_RASKVEL");
 	author("Adjatha");
 
 	output("Why settle for one when you can enjoy two at the same time? You step over to an alcove shared by two raskvel women who have been installed atop one another, their tails buckled against the wall to keep the dextrous hind-limbs from getting up to any mischief. The one on bottom has a rich, crimson hue while the one above has fair, light blue scales. A pair of flickering, digital portraits on either side of the sandwiched booties depict the girls from the waist up, before they were installed here. The ruby girl has a regal air to her, clad in a tall-necked dress with coifed hair, her head turned in profile, like she’s too good to look directly at the camera. The turquoise girl, on the other hand, has no such restraint, as her picture shows a pierced, punky brat bending her head to lick her own nipple, without breaking eye-contact.");
@@ -676,6 +680,7 @@ public function raskvelCuntFun(x:int):void
 	clearOutput();
 	author("Adjatha");
 	showName("RASKVEL\nCUNNY");
+	showBust("WALL_RASKVEL");
 	//no puss pass:
 	if(!pc.hasKeyItem("Puss Pass")) 
 	{
@@ -685,7 +690,7 @@ public function raskvelCuntFun(x:int):void
 	//has puss pass:
 	else output("You insert your Puss Pass and get down to business.");
 	//merge
-	output("\n\nYour [pc.cocks] " + (pc.totalCocks() == 1 ? "is":"are") + " stiff and growing harder the more you look at the two, squished pussies" + (!pc.isCrotchExposed() ? ", so you pull off enough of your [pc.crotchCovers] to unsheath your meat":"") + ". Lining up your [pc.cock " + x + "] with the nectar-glazed nexus of the wall-sluts, you slide your [pc.cockHead " + x + "] against the moist lower lips. Your cockhead slips easily past the pliant, lubricated mounds of their heated loins, virtually sucked in by their restless struggles. Perhaps startled, the two shift, trying to pull back or twist away but in their captive state they only succeed in vigorously rubbing themselves against your firmness. Pushing your way across their nectar-lubed cunts, your [pc.cock " + x + "] drinks in their pillowy cushions. Red’s copious ass is so wide, it hugs the underside of your length while Blue’s pleasure-pumped pussy lips enfold your girth in a heated embrace.");
+	output("\n\nYour [pc.cocks] " + (pc.totalCocks() == 1 ? "is":"are") + " stiff and growing harder the more you look at the two, squished pussies" + (!pc.isCrotchExposed() ? ", so you pull off enough of your [pc.crotchCovers] to unsheathe your meat":"") + ". Lining up your [pc.cock " + x + "] with the nectar-glazed nexus of the wall-sluts, you slide your [pc.cockHead " + x + "] against the moist lower lips. Your cockhead slips easily past the pliant, lubricated mounds of their heated loins, virtually sucked in by their restless struggles. Perhaps startled, the two shift, trying to pull back or twist away but in their captive state they only succeed in vigorously rubbing themselves against your firmness. Pushing your way across their nectar-lubed cunts, your [pc.cock " + x + "] drinks in their pillowy cushions. Red’s copious ass is so wide, it hugs the underside of your length while Blue’s pleasure-pumped pussy lips enfold your girth in a heated embrace.");
 	output("\n\nYou slide slowly between them with a long, drawn-out thrust. The soft, lust-slick scales of their loins are compressed with pussy tightness. As you rock your crest back and forth between them, you marvel at how the moist pocket of the girl’s mutual nook seems to fit you like a glove. The differing textures of their mounds complement each other in a way that sends a thrill up your abdomen and coaxes a slight spurt of [pc.cumVisc] pre-cum. Cushioning cunts buff the [pc.cumGem] cream between themselves, the voluptuous pair of quivering muffs drooling their own agitated passion against your [pc.cock " + x + "] in twin, seeping flows.");
 	//cock 9+
 	if(pc.cocks[x].cLength() >= 9) output("\n\nYou slide right through the plump pussies and across the girls’ taut stomachs. In short order, you press against a second, unseen barrier: the raskvels’ compressed tits. The slickness of their shared lust lubricate your invading mast, allowing you slide through the mutual cleavage without only minor pressure. The pictures of the two on your left and right depict fairly average B-cups, but the squishy gulf caressing your [pc.cockHead " + x + "] is anything but modest. Perhaps their confinement in the Tap-Hall has left them to accumulate caloric mass. Maybe their owners gave them a little quality of life modification before shutting them up together. Whatever the reason, the shortstacks now share a veritable valley of soft tit-flesh to surround and stimulate their better endowed clientele. Pumping a foot at a time, you draw back to gather the warm femme cum gushing in their pliant vulvas before thrusting forward into the buxom furrow of their massive mammaries.");
@@ -696,7 +701,7 @@ public function raskvelCuntFun(x:int):void
 	output("\n\nYou can feel the slight firmness of the girl’s clits through the softness of their fleshy muffs, four firm, hot bulbs buried in velvet folds, like a quartet of tongue-tips inside cock-stuffed cheeks. Grabbing a cheek on each girl’s ass, you brace yourself, grinding your [pc.cock " + x + "] against the aliens’ sensitive pearls. Blue surrenders first, gushing with warm, orgasmic fluid that washes over your girth, soaking her rosy companion’s pussy in the process. It’s not long, however, before the bottom joins her top’s clenching climax. Red’s climax is rather more spectacular, as her orgasm shoots spraying jets of femme cum in wild spree, squirting all over herself, her partner, your cock, and even fountaining back to splatter across your abdomen and [pc.legOrLegs] as well!");
 	output("\n\nWith these two shuddering and squirting, you pull back to sample the goods themselves. As lubed as they’re likely to get, you line up your [pc.cockHead " + x + "] and thrust into a pussy with heedless abandon. You don’t even notice which girl you pierced at first, your penetration bringing on another wave of clenching, bucking bliss. Muscled folds suckle in spasming ecstasy as you pump her cunt properly, wet [pc.skinFurScales] slapping lust engorged scales in an orgy of lewd abandon. You pull out long enough to switch holes before slamming home again, the new pussy unprepared and taut with orgasmic tremors.");
 	pc.cockChange();
-	output("\n\nThe girls rock back and forth against one another, as eager to coax your shaft to plow their aching slit as to enviously tease their roomate. They’re so wanton that by the time you withdraw from one and push against the other, your [pc.cock " + x + "] slides right in like a well oiled machine. You fuck the ruby raskvel for a few dozen strokes before switching to the lapis one, groaning at the continually re-tightening of their lust-sloppy holes. In no time, you have a pattern of fucking the two in rapid succession, each trembling and tightening in an effort to prove themselves the more suitable cocksheath.");
+	output("\n\nThe girls rock back and forth against one another, as eager to coax your shaft to plow their aching slit as to enviously tease their roommate. They’re so wanton that by the time you withdraw from one and push against the other, your [pc.cock " + x + "] slides right in like a well oiled machine. You fuck the ruby raskvel for a few dozen strokes before switching to the lapis one, groaning at the continually re-tightening of their lust-sloppy holes. In no time, you have a pattern of fucking the two in rapid succession, each trembling and tightening in an effort to prove themselves the more suitable cocksheath.");
 	output("\n\nTheir cascading climaxes press on your libido like a button, urgency crackling across your body with electric need. " + (pc.balls > 0 ? "Breeding urges wash through your [pc.balls] like a throbbing bass beat. The gravity of your seed-stuffed sack leaves you light-headed and fills your ears with the foam-crashing sound a rising tide. ":"") + "When your orgasm does come, you’ve lost track of which hole belongs to which girl. They’re both just as wet and willing, their pussies milking the stranger inside them or still shuddering with the rippling thrill of their latest cock-stuffing. A heated release pushes past suffocating tightness and spurting loads gush into trembling, raskvel puss. Fervor-flushed walls drink deeply, their fecund folds contracting in suckling ripples. You fill your palms with the crimson girl’s supple cheeks and unburden vent your liquid passion with white-knuckled enthusiasm.");
 
 	var cumQ:Number = pc.cumQ();
@@ -723,6 +728,7 @@ public function thickGoblinSmex():void
 	clearOutput();
 	author("Adjatha");
 	showName("THICK\nGOBLIN");
+	showBust("WALL_GABILANI");
 	output("One of the booths catches your eye with an unusual difference. Rather than blank wall and holo pic, this compartment has its wall made from a thick, translucent plastic, almost like a fish tank. Its occupant is a short, green skinned girl with long, fey ears and heaving, J-cup breasts that entirely cover her torso and smother the lower half of her face. The gabilani’s plump legs and high-heel clad feet have been pulled back by ankle cuffs so that they form a V around her head. The only thing sticking out of the wall is her fat, emerald rump. ");
 	//player hasn’t fucked her yet:
 	if(flags["THICK_GAB_USED"] == undefined) output("Her expression flickers from outrage to disgust every moment you spend near her, but any attempts at speech she might be making are swallowed by the compartment. A far cry from the slack, wanton lust of the others in the Tap-Hall, you’d guess she’s a recent installation.");
@@ -751,6 +757,7 @@ public function goblinAnalStuff(x:int):void
 	clearOutput();
 	showName("\nGABILANI");
 	author("Adjatha");
+	showBust("WALL_GABILANI");
 	//no puss pass:
 	if(!pc.hasKeyItem("Puss Pass")) 
 	{
@@ -935,7 +942,7 @@ public function yesLetUrtaCum(x:int):void
 		if(cumQ > 200000) output("\n\nA pink klaxon goes off overhead when your load begins to flood the booth, and well-placed vents in the floor pop open to drain away the excess. Squeegee-bearing robots wheel out of housings in the wall to do battle with the slimy morass, their little motors in overdrive as they struggle to keep up with Tura’s overflowing cunt.");
 	}
 	//merge
-	output("\n\nYou pull out and wipe down with the provided cleaning towels" + (pc.isMischievous() ? ", giving the fox-slut a friendly swat on the ass to compliment her good work":"") + (!pc.isCrotchExposed() ? ", then tuck your tackle away":"") + ", ready to face the universe once more.");
+	output("\n\nYou pull out and wipe down with the provided cleaning towels" + (pc.isMischievous() ? ", giving the fox-slut a friendly swat on the ass to complement her good work":"") + (!pc.isCrotchExposed() ? ", then tuck your tackle away":"") + ", ready to face the universe once more.");
 	processTime(25);
 	pc.orgasm();
 	pc.createStatusEffect("FoxyDisable");
@@ -952,7 +959,7 @@ public function noCummiesForUrta(x:int):void
 	showUrta();
 	author("Fenoxo");
 	output("After a moment’s consideration (and another moment of savoring the way this slut-fox franticly clutches at your cock), you tap the glowing ‘N’. Something faintly hisses from inside the ring, and wall-woman’s hips seize in discomfort. Her cunt clamps down with vice-like force, trapping your [pc.cock " + x + "] while she writhes in a mixture of pleasure and pain, trapped on the edge and yet unable to leap over into the sea of bliss beyond. Tura squirms, thighs quivering, toes curling. Her pussy somehow grows juicier while small rivulets of gleaming pre-cum wind between down her heaving schlong to puddle in the creases of her ballsack.");
-	output("\n\nShe writhes like that for a full twenty seconds before her cunt’s cruel pressure finally relents, allowing you to draw back for your first proper fuckstroke. Thrusting it straight back in seems almost brutish in the wake of what you’ve done, but you’re sure the denial will make Tura’s eventual release all the sweeter regardless of whether you’re the one to grant it. Dribbles of her musky necter splatter your " + (pc.balls > 0 ? "[pc.sack]":"[pc.thighs]") + " on your push back in. The vixen’s cock-hungry cunt actually feels like it’s sucking you back in even as fresh slicks of girlish delight drip unimpeded across her asscheeks to stain the wall.");
+	output("\n\nShe writhes like that for a full twenty seconds before her cunt’s cruel pressure finally relents, allowing you to draw back for your first proper fuckstroke. Thrusting it straight back in seems almost brutish in the wake of what you’ve done, but you’re sure the denial will make Tura’s eventual release all the sweeter regardless of whether you’re the one to grant it. Dribbles of her musky nectar splatter your " + (pc.balls > 0 ? "[pc.sack]":"[pc.thighs]") + " on your push back in. The vixen’s cock-hungry cunt actually feels like it’s sucking you back in even as fresh slicks of girlish delight drip unimpeded across her asscheeks to stain the wall.");
 	//Balls Deep
 	if(pc.cocks[x].cLength() <= 20) output("\n\nYour lip peels back in a too-pleased smile when you finally take the fox-whore [pc.knotBallsHilt " + x + "]-deep. There’s no point in worrying about where her balls are resting when you can grab her by the ankles and " + (pc.cocks[x].cLength() >= 15 ? "nudge your [pc.cockHead " + x + "] against the squishy ring of her cervix":"burrow your [pc.cockHead " + x + "] so deep that you feel like you’ll lose yourself inside her") + ". So what if those heavy, swollen orbs slide against the top of your [pc.cock " + x + "] on the backstroke? They’re just as soaked in oily fox-lube as the clutching cuntlips below. It’s another tantalizing taste of pleasure for you to savor while pounding away at the wall-bound fox.");
 	//Toobigforballs deep
@@ -977,7 +984,7 @@ public function noCummiesForUrta(x:int):void
 		output("\n\nYou cum like the true breeder you’ve become, not just drenching Tura’s passage but stuffing it full and then some." + (!pc.hasKnot(x) ? " Thick rivers of your excess pour out around your girth to slide down the crack of her ass and soak into the fibers of her furry tail, but the greatest portions remain inside.":" Not a single dribble escapes. Your [pc.knot " + x + "] seals her cunt tightly, trapping the fullness of your steaming hot load inside, where it belongs.") + " You’re sure that on the other side of the wall, her belly is inflating, rounding out in an obscene parody of the fecundity " + (pc.cumQuality() <= 0 ? "she’d soon experience, were you virile":"she’s liable to experience all too soon") + ". Spraying your last deposits, you smile and savor the caresses of her squeezing quim, muted by the pussy-inflating layer of seed between.");
 	}
 	//Merge
-	output("\n\nYou pull out and wipe down with the provided cleaning towels" + (pc.isMischievous() ? ", giving the fox-slut a friendly swat on the ass to compliment her good work":"") + (!pc.isCrotchExposed() ? ", then tuck your tackle away":"") + ", ready to face the universe once more.");
+	output("\n\nYou pull out and wipe down with the provided cleaning towels" + (pc.isMischievous() ? ", giving the fox-slut a friendly swat on the ass to complement her good work":"") + (!pc.isCrotchExposed() ? ", then tuck your tackle away":"") + ", ready to face the universe once more.");
 	processTime(25);
 	pc.orgasm();
 	pc.createStatusEffect("FoxyDisable");
@@ -1062,6 +1069,7 @@ public function demureTaurWallIntro():void
 	clearOutput();
 	showName("\nLEITHAN");
 	author("Adjatha");
+	showBust("WALL_LEITHAN");
 	output("One of the larger girls locked in the wall alcoves catches your eye. She’s a leithan, that much is obvious, though her coloration is singular: an albino! And no doubt a prize captive for whichever pirate grabbed her. The tauric woman’s upper body and front legs are hidden within the wall, but her rear four legs are enough to stick out past the shallow cell dividers and any hope of discrete modesty. The holo-pic on the wall displays a full-cheeked, heart-shaped face, her heavily lidded red eyes averted from the viewer in embarrassment. She has a considerable mane of elaborate, braided tresses, which suggests she may have come from money. A far cry from her current state.");
 	output("\n\nMoving closer, you have a chance to admire the taur’s physique. Her wide, mare-like hips extend some distance from the oval hole her waist is stuck in. Her pale white scales are so fine they’re indistinguishable from oiled skin and the plates mounted along her back shimmer like polished alabaster. A short, un-armored tail ineffectually hugs her considerable rump tightly, too stubby to provide any modesty. Between her sculpted, champagne-hued ass lies a blushing, lilac anal ring as plump as a labia and glistening with the humiliated arousal of her indentured exposure. Just below her plugged, petal-perfect pussy hangs huge, dark purple balls squished between her back legs and a crude, animalistic sheath stuffed fat with her shameful girth.");
 	output("\n\nThere is a pale white bio-plug in her pussy, but her ass and cock are open for business. It will cost " + demureTaurCost() + " credits to lay the leithan.");
@@ -1086,6 +1094,8 @@ public function demureTaurCost():Number
 public function demureTaurAss(x:int):void
 {
 	clearOutput();
+	showName("\nLEITHAN");
+	showBust("WALL_LEITHAN");
 	//no puss pass:
 	if(!pc.hasKeyItem("Puss Pass")) 
 	{
@@ -1133,6 +1143,7 @@ public function demTaurButt2(x:int):void
 {
 	clearOutput();
 	showName("\nLEITHAN");
+	showBust("WALL_LEITHAN");
 	author("Adjatha");
 	output("You can’t help but smile at the taur’s prim and demure holo-pic staring back at you while her actual body is getting off on the slightest bit of anal stimulation, debasing herself with such enthusiasm. It’s almost more than your hyper-charged libido can stand. You " + (pc.isTaur() ? "tighten the grip of your forelegs around her midsection":"fill your hands with the pliant pillows of her copious rear") + " as you thrust forward, piercing her clenching hole in a single go. She kicks a leg back in shock, her inner walls pulling tight in irregularly spaced bands of rut-slick muscle." + (pc.balls > 1 ? " Your [pc.balls] slap against her weighty orbs while the overflowing wetness of her plugged pussy polishes both sets with a glistening heat. Holding her balls deep, you drive in with shallow thrusts, every stroke meaty enough to carry the vibrating impacts through her sheath and down her wobbling, bobbing member.":""));
 	output("\n\nPulling back, you savor the narrowing closeness of each rippling internal loop as it tries to keep your peak from retreating. It isn’t until you reversing directions, that you find refreshed resistance every few inches. It’s as if her ass were lined with donut-thick sphincters all through the span of her devouring depths. It takes some getting used to, but before long you’re pumping at a steady pace, each hip-bobbing pluge forcing a couple of inches at a time. Once she’s swallowed everything you’ve got to give, you pull back through the gaped inner gates, ring by ring, before beginning again.");
@@ -1295,7 +1306,7 @@ public function gaveCumflatedCherryABubble(bubbleSize:Number):void
 	showBust(cherryBustString(),molliBustString());
 	author("Adjatha");
 	output("The ruby pirate shakes her head in disbelief as you hand her yet another gift. <i>“I’m still working off your last gratuity and you’ve got more coming? You sure you’re not a go’rahn in disguise?”</i>");
-	output("\n\nCherry accepts the bubble but gives her belly a jiggling pat. <i>“You don’t mind if I hand this one off to Molli, do you? She works on tips, afterall.”</i> Signaling the huge galotion with a wave, the crimson woman ");
+	output("\n\nCherry accepts the bubble but gives her belly a jiggling pat. <i>“You don’t mind if I hand this one off to Molli, do you? She works on tips, after all.”</i> Signaling the huge galotion with a wave, the crimson woman ");
 	if(bubbleSize == 0) output("flicks the filled condom toward her curvy assistant.");
 	else if(bubbleSize == 1) output("tosses her assistant the rubbery cum ball with an underhanded pitch.");
 	else if(bubbleSize == 2) output("hands the hefty latex sack to an extremely grateful assistant.");
@@ -1561,7 +1572,7 @@ public function largeBubHerPlaceNotNow():void
 		output("\n\nThe rahn reaches behind her and pulls a ruby red bubble somewhat unlike the filled condoms on her belt. <i>“Hey Molli,”</i> she calls to the chubby, pink galotian scooting around the Tap-Hall, cleaning recently used stalls with bubbly enthusiasm. <i>“Catch.”</i>");
 		output("\n\nThe goo girl turns as Cherry lobs the crimson sphere to her, eyes following the slow arc of the ball all the way up and back down, but making no attempts to grab it. The fluid-filled pouch plops on the slime’s bountiful cleavage and slowly sinks down into her. She claps happily.");
 		output("\n\n<i>“I’ll be in my quarters for a bit. If anybody breaks the rules, hit ‘em with the Cherry Bomb and I’ll deal with ‘em when I get back. Got it?”</i>");
-		output("\n\nWith that, Cherry turns to a hefty steel door marking her quarters, Her high-heeled cybernetic legs arch each step to send jiggles through her polished, bubble butt as she goes. She gives you a glace back, pursing her lips playfully before the door closes.");
+		output("\n\nWith that, Cherry turns to a hefty steel door marking her quarters, Her high-heeled cybernetic legs arch each step to send jiggles through her polished, bubble butt as she goes. She gives you a glance back, pursing her lips playfully before the door closes.");
 	}
 	else
 	{
