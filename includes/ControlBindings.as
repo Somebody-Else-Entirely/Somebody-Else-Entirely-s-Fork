@@ -1,4 +1,7 @@
-﻿public function setupInputControls():void
+﻿import flash.utils.describeType;
+import flash.ui.Keyboard;
+
+public function setupInputControls():void
 {
 	//----------------------------------------------------------------
 	// Base UI buttons 
@@ -187,6 +190,34 @@
 		"Go to the next page of buttons",
 		function(inThis:*):Function {
 			return function():void { inThis.userInterface.buttonTray.execButtonPageNext(); };
+		}(this));
+		
+	inputManager.AddBindableControl(
+		"Perks",
+		"Go to the Perks page",
+		function(inThis:*):Function {
+			return function():void { inThis.userInterface.goPerksScreen(); };
+		}(this));
+		
+	inputManager.AddBindableControl(
+		"Appearance",
+		"Go to the Appearance page",
+		function(inThis:*):Function {
+			return function():void { inThis.userInterface.goAppearanceScreen(); };
+		}(this));
+		
+		inputManager.AddBindableControl(
+		"Main Menu",
+		"Go to the main menu",
+		function(inThis:*):Function {
+			return function():void { inThis.userInterface.goMainMenu(); };
+		}(this));
+		
+		inputManager.AddBindableControl(
+		"Save/Load Menu",
+		"Go to the save/load menu",
+		function(inThis:*):Function {
+			return function():void { inThis.userInterface.goSaveLoadMenu(); };
 		}(this));
 		
 	import classes.Cheats;
@@ -448,7 +479,206 @@
 	inputManager.BindKeyToControl(90 , "Previous Button Page");
 	inputManager.BindKeyToControl(88 , "Next Button Page");
 	inputManager.BindKeyToControl(80, "Debug Menu");           // case 80: this.userInterface.debugmm();
+	inputManager.BindKeyToControl(80, "Perks");
+	inputManager.BindKeyToControl(78, "Appearance");
+	inputManager.BindKeyToControl(77, "Main Menu");
+	inputManager.BindKeyToControl(74, "Save/Load Menu");
 
 
 	inputManager.RegisterDefaults();
+}
+
+//Choose between changing the main interface keybindings, the other keybindings, or reseting everything to the default
+public function rebindInputControlsMenuChooseGroup():void
+{
+	clearOutput();
+	clearMenu();
+	output("Stuff");
+	
+	addButton(0, "Main Buttons", rebindInputControlsMenuMainButtons);
+	addButton(1, "Other Keybinds", rebindOtherKeybinds);
+	addButton(2, "Reset Keybinds", resetKeybindsToDefault);
+	addButton(14, "Back", mainGameMenu);
+	addButton(5, "Test", makeSureIHaveTheRightFunctionCall);
+}
+
+public function rebindInputControlsMenuMainButtons():void
+{
+	//(String.fromCharCode(inputManager.getControlMethod("Button " + (i + 1))))
+	clearOutput();
+	var keyDict:Dictionary = getKeyboardDict();
+	var buttonName:String;
+
+	output("Select a button to rebind the key.");
+	
+	for (var i:int = 0; i < 15; i++)
+	{
+		//Unbound Keys
+		if (inputManager.GetControlMethod("Button " + (i + 1)) == -1)
+		{
+			buttonName = "Unbound";
+			addButton(i, "" + buttonName, rebindInputControl, "Button " + (i + 1));
+		}
+		
+		//Keycode not recognized by the dictionary
+		else if (!keyDict[(inputManager.GetControlMethod("Button " + (i + 1)))])
+		{
+			
+			buttonName = "Keycode ";
+			buttonName += (inputManager.GetControlMethod("Button " + (i + 1)).toString());
+			addButton(i, "" + buttonName, rebindInputControl, "Button " + (i + 1));
+		}
+
+		//Everything else
+		else
+		{
+			buttonName = keyDict[(inputManager.GetControlMethod("Button " + (i + 1)))];
+			if (buttonName.substring(0, 7) == "NUMBER_") 
+			{
+				buttonName = buttonName.charAt(buttonName.length - 1);
+			}
+			addButton(i, "" + buttonName, rebindInputControl, "Button " + (i + 1));
+		}
+	}
+}
+
+//The routing on this is a bit complicated. Things start
+//1: Here, where setting the flag triggers a change in the main event handler, in the
+//2: InputManager file (the KeyHandler function). That properly records and rebinds the key, before bouncing it back to 
+//3: Here, where the keyboard dictionary function can be used to generate a proper hotkey to display (rather than a keycode), before finally sending it to the
+//4: ButtonTray file, where private variables/functions can be accessed to actually change the hotkey symbol.
+public function rebindInputControl(funcName:String):void
+{
+	clearOutput();
+	clearMenu();
+	output("The next key you press on your keyboard will be rebound as the control method for the selected button");
+
+	//Hack method because I'm bad at this
+	flags["REBOUND_KEY_FUNCTION"] = funcName;
+}
+
+public function rebindOtherKeybinds():void
+{
+	clearOutput();
+	clearMenu();
+	
+	var keyDict:Dictionary = getKeyboardDict();
+	var functionNames:Array = inputManager.GetFunctionNames();
+	var functionNamesKeybinds:Array = new Array();
+	var keycodeName:String;
+	
+	//Purge functions we don't need, and convert the keycode into a more readable format
+	for (var i:int = 0; i < functionNames.length; i++)
+	{
+		//Ignore main button functions
+		if (functionNames[i].substring(0, 7) == "Button ") continue; 
+		
+		else
+		{
+			//Unbound Keys
+			if (inputManager.GetControlMethod(functionNames[i]) == -1)
+			{
+				functionNamesKeybinds.push([functionNames[i], "Unbound"]);
+			}
+		
+			//Keycodes not recognized by the dictionary
+			else if (!keyDict[(inputManager.GetControlMethod(functionNames[i]))])
+			{
+				functionNamesKeybinds.push([functionNames[i], ("Keycode "+ inputManager.GetControlMethod(functionNames[i]))]);
+			}
+		
+			//Everything else
+			else
+			{
+				keycodeName = keyDict[(inputManager.GetControlMethod(functionNames[i]))];
+				//Stripping off the 'NUMBER_' prefix
+				if (keycodeName.substring(0, 7) == "NUMBER_") 
+				{
+					functionNamesKeybinds.push([functionNames[i], keycodeName.charAt(keycodeName.length-1)]);
+				}
+				else functionNamesKeybinds.push([functionNames[i], keycodeName]);
+			}
+		}
+	}
+	
+	output("Select a function to rebind the key.\n\n");
+	
+	for (i = 0; i < functionNamesKeybinds.length; i++)
+	{
+		output(functionNamesKeybinds[i][0] + ": ");
+		output(functionNamesKeybinds[i][1] + "\n");
+		
+		addButton(i, functionNamesKeybinds[i][0], rebindInputControl, functionNamesKeybinds[i][0], "Current Keybind:", functionNamesKeybinds[i][1]);
+	}
+}
+
+public function resetKeybindsToDefault():void
+{
+	clearOutput();
+	clearMenu();
+	
+	inputManager.ResetToDefaults()
+	output("Key-binds reset.");
+	addButton(0, "Next", mainGameMenu);
+}
+
+public function changeHotkeyDisplay():void
+{
+	var keyDict:Dictionary = getKeyboardDict();
+	var buttonName:String;
+	var hotkeys:Array = new Array();
+	
+	for (var i:int = 0; i < 15; i++)
+	{
+		//Unbound Keys
+		if (inputManager.GetControlMethod("Button " + (i + 1)) == -1)
+		{
+			hotkeys.push("*");
+		}
+		
+		//Keycodes not recognized by the dictionary
+		else if (!keyDict[(inputManager.GetControlMethod("Button " + (i + 1)))])
+		{
+			buttonName = "*";
+			hotkeys.push(buttonName);
+		}
+		
+		//Everything else
+		else
+		{
+			buttonName = keyDict[(inputManager.GetControlMethod("Button " + (i + 1)))];
+			
+			//Stripping off the 'NUMBER_' prefix
+			if (buttonName.substring(0, 7) == "NUMBER_") 
+			{
+				buttonName = buttonName.charAt(buttonName.length - 1);
+			}
+			
+			if (buttonName.length > 1) buttonName = "*";
+			
+			hotkeys.push(buttonName);
+		}
+	}
+	
+	kGAMECLASS.userInterface.buttonTray.updateHotkeys(hotkeys);
+}
+
+public function makeSureIHaveTheRightFunctionCall():void
+{
+	showPerksList();
+}
+
+//Stolen from stack exchange
+public function getKeyboardDict():Dictionary {
+    var keyDescription:XML = describeType(Keyboard);
+    var keyNames:XMLList = keyDescription..constant.@name;
+
+    var keyboardDict:Dictionary = new Dictionary();
+
+    var len:int = keyNames.length();
+    for(var i:int = 0; i < len; i++) {
+        keyboardDict[Keyboard[keyNames[i]]] = keyNames[i];
+    }
+
+    return keyboardDict;
 }
