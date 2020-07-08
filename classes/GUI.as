@@ -611,6 +611,7 @@
 			mainButtonsOnly();
 			clearGhostMenu();
 			
+			addButton(0, "Rebind Keys", kGAMECLASS.rebindInputControlsMenuChooseGroup);
 			if (kGAMECLASS.pc.short.length == 0) addGhostButton(4, "Back", showMainMenu);
 			//else addGhostButton(4, "Back", showPrimaryOutput);
 			else addGhostButton(4, "Back", backToPrimaryOutput);
@@ -1619,6 +1620,30 @@
 		public function get activeModule():ContentModule
 		{
 			return _currentModule;
+		}
+		
+		public function goSaveLoadMenu():void
+		{
+			//kGAMECLASS.showDataMenu();
+		}
+		
+		public function goAppearanceScreen():void
+		{
+			if (kGAMECLASS.pc.short == "uncreated" || kGAMECLASS.pc.short.length == 0) return;
+			
+			kGAMECLASS.pcAppearance();
+		}
+		
+		public function goPerksScreen():void
+		{
+			if (kGAMECLASS.pc.short == "uncreated" || kGAMECLASS.pc.short.length == 0) return;
+			
+			kGAMECLASS.showPerksList();
+		}
+		
+		public function goMainMenu():void
+		{
+			showMainMenu();
 		}
 	}
 }
