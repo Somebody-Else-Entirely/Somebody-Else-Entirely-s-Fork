@@ -223,6 +223,21 @@
 			if (_debug) trace("Got key input " + e.keyCode);
 			kGAMECLASS.toggleWTF();
 			
+			//Hijacking this function for rebinding keys
+			if (kGAMECLASS.flags["REBOUND_KEY_FUNCTION"] != undefined) 
+			{
+				BindKeyToControl(e.keyCode, kGAMECLASS.flags["REBOUND_KEY_FUNCTION"]);
+	
+				kGAMECLASS.clearOutput();
+				kGAMECLASS.changeHotkeyDisplay();
+				kGAMECLASS.clearMenu();
+				
+				kGAMECLASS.output("Successfully rebound key");
+				kGAMECLASS.addButton(0, "Next", kGAMECLASS.mainGameMenu);
+				kGAMECLASS.flags["REBOUND_KEY_FUNCTION"] = undefined;
+				return;
+			}
+			
 			// If we're not in binding mode, listen for key inputs to act on
 			if (_ignoreKeyPresses == false)
 			{
@@ -395,6 +410,30 @@
 			}
 			
 			return controls;
+		}
+		
+		//Return the keycode for a single function
+		public function GetControlMethod(funcName:String):int
+		{
+			for (var key:String in _controlMethods)
+			{
+				// Find the method we want the key from
+				if (funcName == key) return _controlMethods[key].PrimaryKey;
+			}
+			
+			return -1;
+		}
+		
+		//Return an array of function names
+		public function GetFunctionNames():Array
+		{
+			var functionNames:Array = new Array;
+			for (var key:String in _controlMethods)
+			{
+				functionNames.push(_controlMethods[key].Name);
+			}
+			
+			return functionNames;
 		}
 	}
 	
