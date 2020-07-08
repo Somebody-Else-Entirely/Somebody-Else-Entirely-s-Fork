@@ -534,6 +534,16 @@
 		{
 			return _buttonData[arg].arg;
 		}
+		
+		public function updateHotkeys(arg:Array):void
+		{
+			for (var i:int = 0; i < _defaultHotkeys.length; i++)
+			{
+				_defaultHotkeys[i] = arg[i];
+			}
+			
+			//Refreshes button hotkeys displayed
+			BuildButtons();
+		}
 	}
-
 }
