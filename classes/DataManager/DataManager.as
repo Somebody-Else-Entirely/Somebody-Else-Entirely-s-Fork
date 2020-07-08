@@ -33,7 +33,9 @@
 	import classes.GameData.ChildManager;
 	import classes.Engine.Interfaces.*;
 	import classes.Engine.Map.*;
+	import classes.InputManager;
 	import flash.system.Capabilities;
+	
 	
 	/**
 	 * Data Manager to handle the processing of player data files.
@@ -1629,6 +1631,9 @@
 			// Children
 			dataFile.children = cloneObject(ChildManager.getSaveObject());
 			
+			//Keybinds
+			dataFile.keybinds = cloneObject(kGAMECLASS.inputManager.SaveBindsToObj());
+			
 			// Ship management stuff
 			CONFIG::debug
 			{
@@ -1903,6 +1908,17 @@
 			else
 			{
 				ChildManager.resetChildren();
+			}
+			
+			if (obj.keybinds != undefined)
+			{
+				kGAMECLASS.inputManager.LoadBindsFromObj(cloneObject(obj.keybinds));
+				kGAMECLASS.changeHotkeyDisplay();
+			}
+			else
+			{
+				kGAMECLASS.inputManager.ResetToDefaults();
+				kGAMECLASS.changeHotkeyDisplay();
 			}
 			
 			CONFIG::debug
