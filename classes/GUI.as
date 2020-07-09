@@ -53,6 +53,7 @@
 	import classes.UIComponents.ContentModules.LevelUpStatsModule;
 	import classes.Engine.Interfaces.ParseText;
 	import classes.Engine.Map.InShipInterior;
+	import classes.DataManager.DataManager;
 
 	import classes.UIComponents.SideBarComponents.StatBar;
 
@@ -1624,7 +1625,7 @@
 		
 		public function goSaveLoadMenu():void
 		{
-			//kGAMECLASS.showDataMenu();
+			titsClassPtr.dataManager.dataRouter();
 		}
 		
 		public function goAppearanceScreen():void
